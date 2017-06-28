@@ -1,3 +1,19 @@
-.test {
-    height: 100px;
+.top-header {
+    display: flex;
+
+    width: 100%;
+    color: #fff;
+    height: 56px;
+    background: #3F51B5;
+    transition: padding-left .6s ease-in-out,background-color .3s cubic-bezier(.4, 0, .2, 1),box-shadow .15s linear;
+    z-index: 30;
+    .search-wrap {
+        margin-left: auto;
+
+    }
+}
+
+.search-wrap {
+    position: relative;
+    min-width: 56px
 }

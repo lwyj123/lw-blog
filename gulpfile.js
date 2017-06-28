@@ -10,5 +10,5 @@ return gulp.src('./static/scss/**/*.scss')
 });
 
 gulp.task('watch', function () {
-gulp.watch('./static/scss/**/*.scss', ['sass']);
+gulp.watch('./static/scss/**/*.scss', ['scss']);
 });
