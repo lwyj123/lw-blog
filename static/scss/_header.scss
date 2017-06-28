@@ -8,8 +8,15 @@
     transition: padding-left .6s ease-in-out,background-color .3s cubic-bezier(.4, 0, .2, 1),box-shadow .15s linear;
     z-index: 30;
     .search-wrap {
+        line-height: 60px;
         margin-left: auto;
 
+    }
+    .share-wrap {
+        line-height: 60px;
+    }
+    i.iconfont {
+        font-size: 42px;
     }
 }
 
