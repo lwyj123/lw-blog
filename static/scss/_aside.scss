@@ -1,0 +1,115 @@
+#menu-off {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 66;
+    width: 240px;
+    min-height: 100%;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    -webkit-transition: .4s cubic-bezier(.18, .81, .3, .89);
+    transition: .4s cubic-bezier(.18, .81, .3, .89)
+}
+
+#menu.hide {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%)
+}
+
+#menu.hide #menu-off {
+    -webkit-transform: scale(0);
+    transform: scale(0)
+}
+
+#menu.hide+#main {
+    padding-left: 0
+}
+
+#menu .inner {
+    position: relative;
+    height: 100%
+}
+
+#menu .brand-wrap {
+    background: url(../img/brand.jpg);
+    background-size: 100% 100%
+}
+
+#menu .brand {
+    padding: 40px 20px 2em;
+    background: rgba(63,81,181,0.5)
+}
+
+#menu .avatar {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+}
+
+#menu .introduce {
+    margin: 1em 0 0;
+    color: #fff
+}
+
+#menu .mail {
+    display: inline-block;
+    padding-top: 4px;
+    color: #C5CAE9;
+    font-size: 13px
+}
+
+#menu .scroll-wrap {
+    position: relative;
+    overflow-y: auto
+}
+
+#menu .nav {
+    margin: 0;
+    padding: 12px 0;
+    height: 300px;
+    min-height: calc(100% - 115px);
+    list-style: none;
+    line-height: 44px
+}
+
+#menu .nav li {
+    padding: 0 20px
+}
+
+#menu .nav li .icon {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    line-height: inherit
+}
+
+#menu .nav li:hover,#menu .nav li.active {
+    background: rgba(0,0,0,0.05)
+}
+
+#menu .nav li:hover a,#menu .nav li.active a,#menu .nav li:hover .icon,#menu .nav li.active .icon {
+    color: #3F51B5
+}
+
+#menu .nav a {
+    display: block;
+    padding-left: 48px;
+    height: 44px;
+    line-height: 44px;
+    font-weight: 500;
+    color: #727272;
+    text-decoration: none
+}

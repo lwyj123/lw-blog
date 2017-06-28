@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/lwyj123/lw-blog#readme",
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
   }
 }
