@@ -2,7 +2,13 @@
 @import '_header.scss';
 @import '_main.scss';
 @import '_nav.scss';
+@import '_post.scss';
 
-.fuck {
-    width: 100px;
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+ul {
+    list-style: none;
 }

@@ -20,6 +20,7 @@
 <!-- <link rel="stylesheet" href="/css/style.css?v=1.4.5"> -->
 <link rel="stylesheet" href="./static/style.css">
 <link rel="stylesheet" href="./static/iconfont/iconfont.css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div id="loading" class="active">
@@ -60,60 +61,37 @@
                 <i class="iconfont lw-icon-tag"></i>
                 <a href="#/work">Work</a>
             </li>
-            <li class="copy">© 2016 Logo. All Rights Reserved.</li>
+            <li class="copy">© 2017 lwio. All Rights Reserved.</li>
         </ul>
     </div>
     <label for="show-menu" class="mask"></label>
     <div id="main" class="container body-wrap">
         <div class="content">
             <ul class="post-list">
-                <li class="post-list-item fade">
-                <article id="post-memory-leak" class="article-card article-type-post" itemprop="blogPost">
-                <div class="post-meta">
-                    <time class="post-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-25</time>
-                </div>
-                <h3 class="post-title" itemprop="name">
-                <a class="post-title-link" href="/2017/05/25/memory-leak/">JavaScript 内存泄露教程</a>
-                </h3>
-                <div class="post-content" id="post-content" itemprop="postContent">
-                JavaScript 内存泄露教程一、什么是内存泄露？程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。
-        对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
-                            ...
-                    <a href="/2017/05/25/memory-leak/" class="post-more waves-effect waves-button">
-                    阅读全文...
-                    </a>
-                </div>
-                <div class="post-footer">
-                    <ul class="article-tag-list">
-                        <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li>
-                        <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li>
-                        <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li>
-                    </ul>
-                </div>
-                </article>
+                <li class="post-item fade">
+                    <article id="post-memory-leak" class="article-card" itemprop="blogPost">
+                        <div class="post-meta">
+                            <time class="post-publish-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-25</time>
+                            <time class="post-lastmodified-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-29</time>
+                        </div>
+                        <h3 class="post-title" itemprop="name">
+                            <a class="post-title-link" href="/2017/05/25/memory-leak/">JavaScript 内存泄露教程</a>
+                        </h3>
+                        <div class="post-brief" id="post-content" itemprop="postContent">
+                    JavaScript 内存泄露教程一、什么是内存泄露？程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。
+            对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
+                                ...
+                            <a href="/articles/memory-leak/" class="post-more">阅读全文...</a>
+                        </div>
+                        <div class="post-footer">
+                            <ul class="tag-list">
+                                <li class="tag-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li>
+                                <li class="tag-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li>
+                                <li class="tag-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li>
+                            </ul>
+                        </div>
+                    </article>
                 </li>
-                <li class="post-list-item fade">
-                <article id="post-reg-lookahead" class="article-card article-type-post" itemprop="blogPost">
-                <div class="post-meta">
-                    <time class="post-time" title="2017年05月22日 22:08" datetime="2017-05-22T14:08:21.000Z" itemprop="datePublished">2017-05-22</time>
-                </div>
-                <h3 class="post-title" itemprop="name">
-                <a class="post-title-link" href="/2017/05/22/reg-lookahead/">JS正则表达式之前瞻</a>
-                </h3>
-                <div class="post-content" id="post-content" itemprop="postContent">
-                JavaScript正则表达式之前瞻概念&nbsp;&nbsp;&nbsp;&nbsp;正则表达式从文本头部向尾部开始解析，文本尾部称为“前”。&nbsp;&nbsp;&nbsp;&nbsp;前瞻就是在正则表达式匹配到规则的时候，向前检查是否符合断言。后顾/后瞻方向相反。
-        exp(?=assert)：正向前瞻exp(?!assert)：负向前瞻exp(?&lt;=assert)：正向后顾 e...
-                    <a href="/2017/05/22/reg-lookahead/" class="post-more waves-effect waves-button">
-                    阅读全文...
-                    </a>
-                </div>
-                <div class="post-footer">
-                    <ul class="article-tag-list">
-                        <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li>
-                        <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li>
-                        <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li>
-                    </ul>
-                </div>
             </ul>
         </div>
         <footer class="footer">
@@ -132,16 +110,19 @@
 
 </div>
 
+<script src="lib/template-web.js"></script>
+<script id="tpl-content-cards" type="text/html">
+{{each target}}
+    {{$index}} {{$value}}
+{{/each}}
+</script>
 
-<script src="https://icdn.microzz.com/microzz/js/waves.min.js"></script>
 <script>
 var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
 window.onhashchange = function() {
     alert('hash changed')
 }
 </script>
-<!-- <script src="/js/main.min.js?v=1.4.5"></script>
- -->
-<script src="https://icdn.microzz.com/microzz/js/main.min.js"></script>
 </body>
 </html>
