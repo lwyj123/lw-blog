@@ -26,11 +26,20 @@ var watcher = chokidar.watch('file, dir, or glob', {
 });
 
 var log = console.log.bind(console);
-watcher.add('./**/*.md');
+var showdown  = require('showdown');
+var converter = new showdown.Converter();
+
+watcher.add('./**/*.mda');
 watcher
   .on('add', function(path) { log('File', path, 'has been added'); })
   .on('addDir', function(path) { log('Directory', path, 'has been added'); })
-  .on('change', function(path) { log('File', path, 'has been changed'); })
+  .on('change', function(path) {
+    log('File', path, 'has been changed'); 
+
+    var info = readFileInfo(path);
+    var dirPath = path.replace(/(.*)\/[^\/.]+\..*?$/, '$1')
+    generateArticleJson(dirPath, info);
+  })
   .on('unlink', function(path) { log('File', path, 'has been removed'); })
   .on('unlinkDir', function(path) { log('Directory', path, 'has been removed'); })
   .on('error', function(error) { log('Error happened', error); })
@@ -38,3 +47,32 @@ watcher
   
 
 console.log("watching file...");  
+
+
+function readFileInfo(path) {
+    var data = fs.readFileSync(path, "utf-8");
+    data = data.split('%%%%%%%%');
+
+    var html = converter.makeHtml(data[1]).replace(/\n/g, '');
+    var metaObj = JSON.parse(data[0]);
+    var stat = fs.statSync(path);
+
+    metaObj['created_CST'] = stat.ctime;
+    metaObj['modified_CST'] = stat.mtime;
+    metaObj['slug'] = metaObj.title.replace(' ', '-');
+    return {
+        metaObj: metaObj,
+        html: html
+    }
+}
+function generateArticleJson(basePath, infoObj) {
+    fs.writeFile(`${basePath}/${infoObj.slug}.json`, JSON.stringify(infoObj), function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            var temp = JSON.stringify(infoObj)
+            console.log(temp);
+            console.log(JSON.parse(temp));
+        }
+    });
+}

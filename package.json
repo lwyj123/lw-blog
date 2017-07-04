@@ -23,7 +23,8 @@
     "chokidar": "^1.7.0",
     "fs": "^0.0.1-security",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "showdown": "^1.7.1"
   },
   "devDependencies": {
     "gulp-connect": "^5.0.0",
