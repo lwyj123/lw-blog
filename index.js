@@ -1,6 +1,7 @@
 const fs = require('fs'); 
 // a better way to watch file change
 var chokidar = require('chokidar'); 
+var escapeJSON = require('escape-json-node');
 var fileName = 't.txt';  
 /*fs.watch('./', {
     persistent: true, // 设为false时，不会阻塞进程。
@@ -66,13 +67,12 @@ function readFileInfo(path) {
     }
 }
 function generateArticleJson(basePath, infoObj) {
-    fs.writeFile(`${basePath}/${infoObj.slug}.json`, JSON.stringify(infoObj), function (err) {
+    fs.writeFile(`${basePath}/${infoObj.slug}.json`, escapeJSON(JSON.stringify(infoObj)), function (err) {
         if (err) {
             console.log(err);
         } else {
             var temp = JSON.stringify(infoObj)
-            console.log(temp);
-            console.log(JSON.parse(temp));
+            log(JSON.stringify(infoObj).replace(/\\"/g, '\\"'))
         }
     });
 }
