@@ -1,0 +1,35 @@
+@import '_markdown.scss';
+
+.article-container {
+    width: 100%;
+    min-height: 100px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background-color: #fff;
+    .header {
+        h1 {
+            font-size: 32px;
+            line-height: 48px;
+        }
+        div.article-meta {
+            span {
+                line-height: 14px;
+                font-size: 13px;
+                font-weight: bold;
+                color: #727272;  
+            }
+            span:not(:first-child) {
+                margin-left: 5px;
+            }
+        }
+    }
+    .body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .footer {
+
+    }
+}

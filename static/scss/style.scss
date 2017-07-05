@@ -3,8 +3,13 @@
 @import '_main.scss';
 @import '_nav.scss';
 @import '_post.scss';
+@import 'article/_article.scss';
 
-
+*::-webkit-scrollbar{
+    -webkit-appearance:none;
+    width:8px;
+    height:8px;
+}
 a {
     text-decoration: none;
     cursor: pointer;
