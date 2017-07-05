@@ -1,1 +1,127 @@
-article.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>梁王lwio.me</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#3F51B5">
+<meta name="keywords" content="JavaScript,ES6,Vue.js,React.js,Node.js,HTML5,CSS3,Angular.js,JS,HTML,CSS,前端,Web">
+<meta name="description" content="HTML/HTML5 CSS/CSS3 JavaScript React.js Vue.js Angular.js Node.js ES6 JS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="梁王lwio.me">
+<meta property="og:url" content="https://lwio.me/index.html">
+<meta property="og:site_name" content="梁王lwio.me">
+<meta property="og:description" content="HTML/HTML5 CSS/CSS3 JavaScript Vue.js Node.js ES6 JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="涵月天-microzz.com">
+<meta name="twitter:description" content="HTML/HTML5 CSS/CSS3 JavaScript React.js Vue.js Angular.js Node.js ES6 JS">
+<link rel="alternative" href="/atom.xml" title="梁王lwio.me" type="application/atom+xml">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="./static/style.css">
+<link rel="stylesheet" href="./static/iconfont/iconfont.css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="loading" class="active">
+</div>
+
+<input type="checkbox" id="show-menu">
+<div id="fix-bar">
+    <div class="logo">
+        <a href="/">logo</a>
+    </div>
+
+    <div class="push top-header">
+        <label class="hamburguer" for="show-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="search-wrap" id="search-wrap">
+            <i class="iconfont lw-icon-search"></i>
+        </div>
+        <a id="share-wrap">
+            <i class="iconfont lw-icon-share"></i>
+        </a>
+    </div>
+</div>
+<div id="canvas">
+    <div id="nav">
+        <div class="profile">
+            
+        </div>
+        <ul class="menu">    
+            <li>
+                <i class="iconfont lw-icon-tag"></i>
+                <a href="#/work">Work</a>
+            </li>
+            <li>
+                <i class="iconfont lw-icon-tag"></i>
+                <a href="#/work">Work</a>
+            </li>
+            <li class="copy">© 2017 lwio. All Rights Reserved.</li>
+        </ul>
+    </div>
+    <label for="show-menu" class="mask"></label>
+    <div id="main" class="container body-wrap">
+        <div class="content">
+            <ul class="post-list">
+                <li class="post-item fade">
+                    <article id="post-memory-leak" class="article-card" itemprop="blogPost">
+                        <div class="post-meta">
+                            <time class="post-publish-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-25</time>
+                            <time class="post-lastmodified-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-29</time>
+                        </div>
+                        <h3 class="post-title" itemprop="name">
+                            <a class="post-title-link" href="/2017/05/25/memory-leak/">JavaScript 内存泄露教程</a>
+                        </h3>
+                        <div class="post-brief" id="post-content" itemprop="postContent">
+                    JavaScript 内存泄露教程一、什么是内存泄露？程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。
+            对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
+                                ...
+                            <a href="/articles/memory-leak/" class="post-more">阅读全文...</a>
+                        </div>
+                        <div class="post-footer">
+                            <ul class="tag-list">
+                                <li class="tag-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li>
+                                <li class="tag-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li>
+                                <li class="tag-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </div>
+        <footer class="footer">
+            <div class="top" style="padding:7px;">
+                <p>
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                    总访问量：
+                    <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                </p>
+            </div>
+            <div class="bottom" style="padding: 8px;">
+            </div>
+        </footer>
+    </div>
+
+</div>
+
+<script src="lib/template-web.js"></script>
+<script id="tpl-content-cards" type="text/html">
+{{each target}}
+    {{$index}} {{$value}}
+{{/each}}
+</script>
+
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+window.onhashchange = function() {
+    alert('hash changed')
+}
+</script>
+</body>
+</html>
