@@ -37,9 +37,18 @@ watcher
   .on('change', function(path) {
     log('File', path, 'has been changed'); 
 
+    // article json part
     var info = readFileInfo(path);
     var dirPath = path.replace(/(.*)\/[^\/.]+\..*?$/, '$1')
     generateArticleJson(dirPath, info);
+
+    // rebuild series json
+    var series = /.*\/([^\/.]+).*?$/.exec(dirPath)[1]
+    var seriesPath = dirPath.replace(/(.*)\/[^\/.]+.*?$/, '$1')
+    rebuildSeriesJson(seriesPath)
+
+    // rebuild nav json
+    rebuildNavJson()
   })
   .on('unlink', function(path) { log('File', path, 'has been removed'); })
   .on('unlinkDir', function(path) { log('Directory', path, 'has been removed'); })
@@ -67,7 +76,8 @@ function readFileInfo(path) {
     }
 }
 function generateArticleJson(basePath, infoObj) {
-    fs.writeFile(`${basePath}/${infoObj.slug}.json`, escapeJSON(JSON.stringify(infoObj)), function (err) {
+    log(`path is ${basePath}/${infoObj.metaObj.slug}.json`)
+    fs.writeFile(`${basePath}/${infoObj.metaObj.slug}.json`, escapeJSON(JSON.stringify(infoObj)), function (err) {
         if (err) {
             console.log(err);
         } else {
@@ -75,4 +85,8 @@ function generateArticleJson(basePath, infoObj) {
             log(JSON.stringify(infoObj).replace(/\\"/g, '\\"'))
         }
     });
+}
+
+function rebuildSeriesJson(seriesPath) {
+    
 }
