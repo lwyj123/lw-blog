@@ -10,6 +10,11 @@
     width:8px;
     height:8px;
 }
+*::-webkit-scrollbar-thumb{
+    background-color: #B6B6B6;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
 a {
     text-decoration: none;
     cursor: pointer;

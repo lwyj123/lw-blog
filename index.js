@@ -63,7 +63,7 @@ function readFileInfo(path) {
     var data = fs.readFileSync(path, "utf-8");
     data = data.split('%%%%%%%%');
 
-    var html = converter.makeHtml(data[1]).replace(/\n/g, '');
+    var html = converter.makeHtml(data[1]);
     var metaObj = JSON.parse(data[0]);
     var stat = fs.statSync(path);
 
