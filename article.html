@@ -118,12 +118,21 @@ window.onload = function() {
 }
 function articleChange() {
     $.get({
-        url: "./articles/flexbox/test-Title.json",
+        url: "./articles/flexbox/"+ window.location.hash.slice(1)+".json",
         type: "get",
         dataType:'text',
         success: function(data) {
+            $('.article-container > .header').html('<h1>Title</h1><div class="article-meta"><span>metaone</span><span>metatwo</span></div>')
             $('.article-container > .body').html(JSON.parse(data).html)
         },
+        error: function(e) {
+            console.dir(e);
+            if(e.status == 404) {
+                $('.article-container > .header').html('not found')
+                $('.article-container > .body').html('')
+            }
+        }
+
     })    
 }
 </script>
