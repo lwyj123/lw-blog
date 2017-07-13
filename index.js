@@ -45,7 +45,7 @@ watcher
     // rebuild series json
     var series = /.*\/([^\/.]+).*?$/.exec(dirPath)[1]
     var seriesPath = dirPath.replace(/(.*)\/[^\/.]+.*?$/, '$1')
-    //rebuildSeriesJson(seriesPath)
+    rebuildSeriesJson(seriesPath)
 
     // rebuild nav json
     //rebuildNavJson()
@@ -88,5 +88,11 @@ function generateArticleJson(basePath, infoObj) {
 }
 
 function rebuildSeriesJson(seriesPath) {
-
+    fs.writeFile(`${seriesPath}/index.json`, 'test', function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            log('success')
+        }
+    });
 }
