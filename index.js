@@ -82,13 +82,41 @@ function generateArticleJson(basePath, infoObj) {
             console.log(err);
         } else {
             var temp = JSON.stringify(infoObj)
-            log(JSON.stringify(infoObj).replace(/\\"/g, '\\"'))
         }
     });
 }
 
 function rebuildSeriesJson(seriesPath) {
-    fs.writeFile(`${seriesPath}/index.json`, 'test', function (err) {
+    var listObj = []
+    var files = []
+    function ScanDir(path) {
+        var that = this
+        if (fs.statSync(path).isFile()) {
+            return files.push(path)
+        }
+        try {
+            fs.readdirSync(path).forEach(function (file) {
+                ScanDir.call(that, path + '/' + file)
+            })
+        } catch (e) {
+        }
+    }
+    ScanDir(seriesPath);
+    files = files.filter((file) => /\.mda/.test(file))
+    console.log(files)
+    for(var file of files) {
+        var data = fs.readFileSync(file, "utf-8");
+        data = data.split('%%%%%%%%');
+
+        var metaObj = JSON.parse(data[0]);
+        // TODO: make a collection transplation table 
+        metaObj['collection'] = file.split('/')[1]
+        metaObj['slug'] = file.split('/')[2].slice(0,-4)
+        listObj.push(metaObj);
+    }
+
+
+    fs.writeFile(`${seriesPath}/index.json`, JSON.stringify(listObj), function (err) {
         if (err) {
             console.log(err);
         } else {
