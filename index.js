@@ -111,7 +111,7 @@ function rebuildSeriesJson(seriesPath) {
         var metaObj = JSON.parse(data[0]);
         // TODO: make a collection transplation table 
         metaObj['collection'] = file.split('/')[1]
-        metaObj['slug'] = file.split('/')[2].slice(0,-4)
+        metaObj['slug'] = metaObj.title.replace(' ', '-');
         listObj.push(metaObj);
     }
 
