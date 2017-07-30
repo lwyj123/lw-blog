@@ -112,6 +112,7 @@ function rebuildSeriesJson(seriesPath) {
         // TODO: make a collection transplation table 
         metaObj['collection'] = file.split('/')[1]
         metaObj['slug'] = metaObj.title.replace(' ', '-');
+        metaObj['preview'] = data[1].slice(0,50);
         listObj.push(metaObj);
     }
 

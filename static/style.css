@@ -256,6 +256,8 @@ input#show-menu:checked ~ #canvas #main {
         .post-list li.post-item .article-card .post-title a:hover::after, .post-list li.post-item .article-card .post-title a:hover::after {
           transform: scaleX(1);
           visibility: visible; }
+      .post-list li.post-item .article-card .post-title p {
+        display: inline-block; }
     .post-list li.post-item .article-card .post-brief {
       padding-bottom: 20px;
       line-height: 1.8;
