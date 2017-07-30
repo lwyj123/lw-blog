@@ -51,7 +51,7 @@
         <ul class="menu">    
             <li>
                 <i class="iconfont lw-icon-tag"></i>
-                <a href="#/work">Work</a>
+                <a href="/">Index</a>
             </li>
             <li>
                 <i class="iconfont lw-icon-tag"></i>
@@ -96,6 +96,7 @@
 </div>
 
 <script src="static/js/template-web.js"></script>
+<script src="static/js/utils.js"></script>
 <script id="tpl-content-cards" type="text/html">
 {{each target}}
     {{$index}} {{$value}}
@@ -104,6 +105,7 @@
 
 <script>
 var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var collection = 
 
 window.onhashchange = function() {
     console.log('hash changed');
@@ -115,7 +117,7 @@ window.onload = function() {
 }
 function articleChange() {
     $.get({
-        url: "./articles/flexbox/"+ window.location.hash.slice(1)+".json",
+        url: "./articles/" + getQueryString('collection') + "/"+ window.location.hash.slice(1)+".json",
         type: "get",
         dataType:'text',
         success: function(data) {

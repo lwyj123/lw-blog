@@ -54,7 +54,7 @@
         <ul class="menu">    
             <li>
                 <i class="iconfont lw-icon-tag"></i>
-                <a href="#/work">Work</a>
+                <a href="/">Index</a>
             </li>
             <li>
                 <i class="iconfont lw-icon-tag"></i>
@@ -95,7 +95,7 @@
                 <time class="post-lastmodified-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-29</time>
             </div>
             <h3 class="post-title" itemprop="name">
-                <a class="post-title-link" href="/article#{{ $value.slug }}">{{ $value.title }}</a>
+                <a class="post-title-link" href="/article?collection={{$value.collection}}#{{ $value.slug }}">{{ $value.title }}</a>
                 <p> — {{ $value.collection }}</p>
             </h3>
             <div class="post-brief" id="post-content" itemprop="postContent">
