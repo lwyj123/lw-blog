@@ -67,8 +67,8 @@ function readFileInfo(path) {
     var metaObj = JSON.parse(data[0]);
     var stat = fs.statSync(path);
 
-    metaObj['created_CST'] = stat.ctime;
-    metaObj['modified_CST'] = stat.mtime;
+    metaObj['created_at'] = stat.ctime;
+    metaObj['modified_at'] = stat.mtime;
     metaObj['slug'] = metaObj.title.replace(' ', '-');
     return {
         metaObj: metaObj,
@@ -106,6 +106,7 @@ function rebuildSeriesJson(seriesPath) {
     console.log(files)
     for(var file of files) {
         var data = fs.readFileSync(file, "utf-8");
+        var stat = fs.statSync(file);
         data = data.split('%%%%%%%%');
 
         var metaObj = JSON.parse(data[0]);
@@ -113,9 +114,15 @@ function rebuildSeriesJson(seriesPath) {
         metaObj['collection'] = file.split('/')[1]
         metaObj['slug'] = metaObj.title.replace(' ', '-');
         metaObj['preview'] = data[1].slice(0,50);
+
+        metaObj['created_at'] = stat.ctime;
+        metaObj['modified_at'] = stat.mtime;
         listObj.push(metaObj);
     }
-
+    // sort Article
+    listObj.sort((articleA, articleB) => {
+        return new Date(articleB.modified_at) - new Date(articleA.modified_at)
+    })
 
     fs.writeFile(`${seriesPath}/index.json`, JSON.stringify(listObj), function (err) {
         if (err) {

@@ -91,8 +91,8 @@
     <li class="post-item fade">
         <article id="post-memory-leak" class="article-card" itemprop="blogPost">
             <div class="post-meta">
-                <time class="post-publish-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-25</time>
-                <time class="post-lastmodified-time" title="2017年05月25日 21:26" datetime="2017-05-25T13:26:23.000Z" itemprop="datePublished">2017-05-29</time>
+                <time class="post-publish-time" itemprop="datePublished">{{ $value.created_at }}</time>
+                <time class="post-lastmodified-time" itemprop="dateLastmodified">{{ $value.modified_at }}</time>
             </div>
             <h3 class="post-title" itemprop="name">
                 <a class="post-title-link" href="/article?collection={{$value.collection}}#{{ $value.slug }}">{{ $value.title }}</a>
