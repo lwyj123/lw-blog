@@ -67,7 +67,6 @@ function readFileInfo(path) {
     var metaObj = JSON.parse(data[0]);
     var stat = fs.statSync(path);
 
-    metaObj['created_at'] = stat.ctime;
     metaObj['modified_at'] = stat.mtime;
     metaObj['slug'] = metaObj.title.replace(' ', '-');
     return {
@@ -115,7 +114,6 @@ function rebuildSeriesJson(seriesPath) {
         metaObj['slug'] = metaObj.title.replace(' ', '-');
         metaObj['preview'] = data[1].slice(0,50);
 
-        metaObj['created_at'] = stat.ctime;
         metaObj['modified_at'] = stat.mtime;
         listObj.push(metaObj);
     }

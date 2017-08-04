@@ -86,13 +86,13 @@
 </div>
 
 <script src="static/js/template-web.js"></script>
+<script src="static/js/utils.js"></script>
 <script id="tpl-content-cards" type="text/html">
 {{each data}}
     <li class="post-item fade">
         <article id="post-memory-leak" class="article-card" itemprop="blogPost">
             <div class="post-meta">
-                <time class="post-publish-time" itemprop="datePublished">{{ $value.created_at }}</time>
-                <time class="post-lastmodified-time" itemprop="dateLastmodified">{{ $value.modified_at }}</time>
+                <time class="post-lastmodified-time" itemprop="dateLastmodified">{{ $value.modified_at_formatted }}</time>
             </div>
             <h3 class="post-title" itemprop="name">
                 <a class="post-title-link" href="/article?collection={{$value.collection}}#{{ $value.slug }}">{{ $value.title }}</a>
@@ -130,6 +130,12 @@ function initData() {
         cache:false,
         success: function(data) {
             var dataobj = {data: JSON.parse(data)}
+            dataobj.data = dataobj.data.map(article => {
+                var newArticle = article;
+                newArticle.created_at_formatted = parseTime(newArticle.created_at, 'yyyy-MM-dd HH:mm')
+                newArticle.modified_at_formatted = parseTime(newArticle.modified_at, 'yyyy-MM-dd HH:mm')
+                return newArticle;
+            })
             var html = template('tpl-content-cards', dataobj);
             $('ul.post-list').html(html)
            
