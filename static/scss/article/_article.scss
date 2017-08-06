@@ -14,13 +14,13 @@
             line-height: 48px;
         }
         div.article-meta {
-            span {
+            time {
                 line-height: 14px;
                 font-size: 13px;
                 font-weight: bold;
                 color: #727272;  
             }
-            span:not(:first-child) {
+            time:not(:first-child) {
                 margin-left: 5px;
             }
         }

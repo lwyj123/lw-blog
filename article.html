@@ -53,31 +53,17 @@
                 <i class="iconfont lw-icon-tag"></i>
                 <a href="/">Index</a>
             </li>
-            <li>
+            <!-- <li>
                 <i class="iconfont lw-icon-tag"></i>
                 <a href="#/work">Work</a>
-            </li>
+            </li> -->
             <li class="copy">© 2017 lwio. All Rights Reserved.</li>
         </ul>
     </div>
     <label for="show-menu" class="mask"></label>
     <div id="main" class="container body-wrap">
         <div class="content">
-            <div class="article-container">
-                <div class="header">
-                    <h1>Title</h1>
-                    <div class="article-meta">
-                        <span>metaone</span>
-                        <span>metatwo</span>
-                    </div>
-                </div>
-                <div class="body">
-                    
-                </div>
-                <div class="footer">
-                    
-                </div>
-            </div>
+            
         </div>
         <footer class="footer">
             <div class="top" style="padding:7px;">
@@ -97,10 +83,19 @@
 
 <script src="static/js/template-web.js"></script>
 <script src="static/js/utils.js"></script>
-<script id="tpl-content-cards" type="text/html">
-{{each target}}
-    {{$index}} {{$value}}
-{{/each}}
+<script id="tpl-article-container" type="text/html">
+<div class="article-container">
+    <div class="header">
+        <h1>{{ metaObj.title }}</h1>
+        <div class="article-meta">
+            <time>{{ metaObj.modified_at_formatted }}</time>
+        </div>
+    </div>
+    <div class="body">
+    </div>
+    <div class="footer">
+    </div>
+</div>
 </script>
 
 <script>
@@ -121,8 +116,12 @@ function articleChange() {
         type: "get",
         dataType:'text',
         success: function(data) {
-            $('.article-container > .header').html('<h1>Title</h1><div class="article-meta"><span>metaone</span><span>metatwo</span></div>')
-            $('.article-container > .body').html(JSON.parse(data).html)
+            var dataobj = JSON.parse(data)
+            dataobj.metaObj.modified_at_formatted = parseTime(dataobj.metaObj.modified_at, 'yyyy-MM-dd HH:mm')
+            var html = template('tpl-article-container', dataobj);
+            $('#main > .content').html(html)
+            // render body alone
+            $('#main > .content > .article-container > .body').html(dataobj.html)
         },
         error: function(e) {
             console.dir(e);
